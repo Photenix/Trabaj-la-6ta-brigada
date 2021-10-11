@@ -1,0 +1,40 @@
+﻿@page
+@model ProyectoG60.App.Presentacion.Pages.ListModel
+
+@{
+}
+
+<h1>Listado de Formadores</h1>
+<table class="table">
+    @foreach (var formador in Model.formadores)
+    {
+        <tr>
+            <td>@formador.id</td>
+            <td>@formador.identificacion</td>
+            <td>@formador.nombre</td>
+            <td>
+                <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="./Details">det</a>
+                        </li>
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-formadorId="@formador.id">
+                  <i class="fas fa-info-circle fa-lg"></i>Detalle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./List" asp-route-formadorId="@formador.id">
+                  <i class="fas fa-address-book fa-lg" aria-hidden="true">Editar</i>
+                </a>
+            </td>
+           <td>
+                <a class="btn btn-danger table-btn" asp-page="./List" asp-route-formadorId="@formador.id">
+                  <i class="fas fa-address-book fa-lg" aria-hidden="true">Eliminar</i>
+                </a>
+            </td> 
+            <td>
+        </tr>
+    }
+</table>
+
+<a asp-page=".\List" class="btn btn-primary">Adicionar un Formador</a>
